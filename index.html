@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Уведомление об использовании файлов Cookies на сайте</title>
+    <style>
+        a {
+          background-color: transparent;
+          cursor: pointer;
+          line-height: inherit;
+          text-decoration: none;
+        }
+        
+        a:hover {
+          color: #4fc7b5;
+        }
+
+        .cookies__button {
+          background-color: #4cc4b2;
+          border: 1px solid #0000;
+          color: #ffffff;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          outline: none;
+          padding: 7px 31px;
+          text-align: center;
+          text-decoration: none;
+          transition-delay: 0s;
+          transition-duration: .15s;
+          transition-property: background-color,color,border-color;
+          transition-timing-function: ease-out;
+        }
+        
+        .cookies__button:hover {
+          background-color: #2f9383;
+          border-color: #0000;
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        .cookies__block {
+        	position: fixed;
+        	bottom: 0;
+        	left: 0;
+        	display: none;
+        	justify-content: center;
+        	width: 100%;
+        	padding: 30px;
+        	box-sizing: border-box;
+        	background-color: gray;
+        }
+        
+        .cookies__active {
+        	display: flex;
+        }
+        
+        .cookies__text {
+        	margin-right: 30px;
+                color: white;
+		width: 80%
+        }
+
+        .cookies__link {
+                color: inherit;
+                text-decoration: underline;
+                transition: .3s ease-in-out;
+        }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.js">  
+</script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Уведомление о Cookies на сайте</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dicta dolore laudantium molestiae optio. Eaque
+        molestiae nam nulla quod voluptatibus?</p>
+    <p>Corporis cumque eos laudantium maxime minus! Animi eaque et ipsam laboriosam non odit perspiciatis, quidem
+        soluta. Asperiores iure rerum voluptate.</p>
+    <p>Alias aperiam blanditiis corporis dignissimos dolor ea fugit impedit magnam nam perferendis provident quaerat
+        sequi sit, sunt tempora ullam, vel.</p>
+</div>
+<div class="cookies__block cookies__active">
+	<div class="cookies__text">ООО "Компания" обрабатывает Cookies с целью персонализации сервисов и чтобы пользоваться веб-сайтом было удобнее. Вы можете запретить обработку Cookies в настройках браузера. Пожалуйста, ознакомьтесь с политикой использования <a class="cookies__link" href="cookie.html" target="_blank">Cookies</a> , где мы подробно рассказываем, как ООО "Компания" обрабатывает и защищает ваши персональные данные на странице. Вы можете запретить сохранение cookie в настройках своего браузера.</div>
+	<button class="cookies__button" type="button">Принимаю</button>
+</div>
+
+<script type="text/javascript">
+const container = document.querySelector(".cookies__block");
+    if (document.cookie.indexOf("cookies-notify") != -1) {
+	container.classList.remove("cookies__active");
+}
+
+if (document.querySelector(".cookies__block")) {
+  const apply = container.querySelector(".cookies__button");
+  apply.addEventListener("click", () => {
+    container.classList.remove("cookies__active");
+    document.cookie = "cookies-notify=true; max-age=2592000; path=/";
+  });
+};
+</script>
+</body>
+</html>
