@@ -1,4 +1,4 @@
-# Coocies Notification banner
+# Cookies Notification Banner
 
 ## Build and run
 ```
